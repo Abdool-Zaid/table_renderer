@@ -1,11 +1,9 @@
 
 function render_table_from_json(data, location){
-    console.log(data,location)
     let target = document.querySelector(location)
 fetch(data)
 .then(response => response.json())
 .then(json => {
-console.log(Object.keys(json[0]))
 let header = `<thead><tr>`
 Object.keys(json[0]).forEach((heading)=>header+=`<th>${heading}</th>`)
 header+=`</tr></thead>`
@@ -19,9 +17,6 @@ json.forEach(data=>{
 })
 Data+='<tbody>'
 target.innerHTML+=Data
-
-
-console.log(Object.values(json[0]))
 })
 
 }
